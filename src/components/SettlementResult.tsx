@@ -1,7 +1,7 @@
 'use client';
 
-import { SettlementResult } from '@/lib/settlementCalculator';
-import { PatientVisit } from '@/lib/patientData';
+import type { SettlementResult } from '@/lib/settlementCalculator';
+import type { PatientVisit } from '@/lib/patientData';
 
 interface SettlementResultProps {
   settlementResult: SettlementResult | null;

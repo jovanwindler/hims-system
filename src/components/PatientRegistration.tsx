@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { DRGGroupingResult } from '@/lib/drgGrouper';
+import type { DRGGroupingResult } from '@/lib/drgGrouper';
 
 interface PatientRegistrationProps {
   groupingResult: DRGGroupingResult | null;

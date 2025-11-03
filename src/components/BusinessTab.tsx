@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import DRGGrouper from '@/components/DRGGrouper';
 import PatientRegistration from '@/components/PatientRegistration';
 import SettlementResult from '@/components/SettlementResult';
-import { DRGGroupingResult } from '@/lib/drgGrouper';
-import { PatientVisitManager, PatientVisit } from '@/lib/patientData';
+import type { DRGGroupingResult } from '@/lib/drgGrouper';
+import { PatientVisitManager } from '@/lib/patientData';
+import type { PatientVisit } from '@/lib/patientData';
 import { SettlementCalculator } from '@/lib/settlementCalculator';
 import { PolicyRulesManager } from '@/lib/policyRules';
 
