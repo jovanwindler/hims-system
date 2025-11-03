@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { DRG_CATALOG, DRGItem } from '@/data/drgCatalog';
-import { DRGGrouper, DRGGroupingResult } from '@/lib/drgGrouper';
+import { DRGGrouper as DRGGroupingService, DRGGroupingResult } from '@/lib/drgGrouper';
 
 interface DRGGrouperProps {
   onGroupingComplete: (result: DRGGroupingResult) => void;
@@ -14,7 +14,7 @@ export default function DRGGrouper({ onGroupingComplete }: DRGGrouperProps) {
 
   useEffect(() => {
     if (selectedDiseaseId) {
-      const result = DRGGrouper.groupDisease(selectedDiseaseId, DRG_CATALOG);
+      const result = DRGGroupingService.groupDisease(selectedDiseaseId, DRG_CATALOG);
       setGroupingResult(result);
       onGroupingComplete(result);
     } else {
