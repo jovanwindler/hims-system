@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { DRG_CATALOG, DRGItem } from '@/data/drgCatalog';
-import { DRGGrouper as DRGGroupingService, DRGGroupingResult } from '@/lib/drgGrouper';
+import { DRGGrouper as DRGGroupingService } from '@/lib/drgGrouper';
+import type { DRGGroupingResult } from '@/lib/drgGrouper';
 
 interface DRGGrouperProps {
   onGroupingComplete: (result: DRGGroupingResult) => void;
