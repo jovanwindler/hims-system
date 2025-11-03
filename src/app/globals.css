@@ -2,58 +2,331 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 支付宝风格字体 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-gray-50;
+    @apply bg-gradient-to-br from-blue-50 via-white to-blue-50 min-h-screen;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  }
+
+  /* 全局字体渲染优化 */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
+  /* 支付宝风格按钮 */
   .btn-primary {
-    @apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200;
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium;
   }
 
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors duration-200;
+    @apply bg-white text-gray-700 px-6 py-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-sm hover:shadow-md font-medium;
   }
 
+  .btn-success {
+    @apply bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg hover:from-green-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium;
+  }
+
+  .btn-warning {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium;
+  }
+
+  /* 支付宝风格卡片 */
   .card {
-    @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+    @apply bg-white rounded-xl shadow-lg border border-gray-100 backdrop-blur-sm;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .card-header {
-    @apply px-6 py-4 border-b border-gray-200;
+    @apply px-8 py-6 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-white rounded-t-xl;
   }
 
   .card-body {
-    @apply px-6 py-4;
+    @apply px-8 py-6;
   }
 
+  /* 支付宝风格表单 */
   .form-input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm;
+  }
+
+  .form-input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
   }
 
   .form-label {
-    @apply block text-sm font-medium text-gray-700 mb-1;
+    @apply block text-sm font-semibold text-gray-700 mb-2;
   }
 
+  .form-select {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm;
+  }
+
+  .form-select:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .form-checkbox {
+    @apply h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded;
+  }
+
+  /* 支付宝风格消息提示 */
   .success-message {
-    @apply bg-green-50 border border-green-200 text-green-800 rounded-md p-4;
+    @apply bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 text-green-800 rounded-xl p-6 shadow-sm;
   }
 
   .error-message {
-    @apply bg-red-50 border border-red-200 text-red-800 rounded-md p-4;
+    @apply bg-gradient-to-r from-red-50 to-rose-50 border border-red-200 text-red-800 rounded-xl p-6 shadow-sm;
   }
 
   .warning-message {
-    @apply bg-yellow-50 border border-yellow-200 text-yellow-800 rounded-md p-4;
+    @apply bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200 text-yellow-800 rounded-xl p-6 shadow-sm;
   }
 
   .info-message {
-    @apply bg-blue-50 border border-blue-200 text-blue-800 rounded-md p-4;
+    @apply bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-800 rounded-xl p-6 shadow-sm;
   }
+
+  /* 支付宝风格状态标签 */
+  .status-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .status-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .status-warning {
+    @apply bg-orange-100 text-orange-800;
+  }
+
+  .status-error {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .status-info {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  /* 支付宝风格数据展示 */
+  .data-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .stat-card {
+    @apply bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-lg border border-blue-100;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-blue-600;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium text-gray-600 mt-1;
+  }
+
+  /* 支付宝风格表格 */
+  .alipay-table {
+    @apply w-full bg-white rounded-xl shadow-lg overflow-hidden;
+  }
+
+  .alipay-table thead {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white;
+  }
+
+  .alipay-table th {
+    @apply px-6 py-4 text-left text-sm font-semibold;
+  }
+
+  .alipay-table td {
+    @apply px-6 py-4 text-sm text-gray-700 border-t border-gray-100;
+  }
+
+  .alipay-table tbody tr:hover {
+    @apply bg-blue-50 transition-colors duration-150;
+  }
+
+  /* 支付宝风格输入框图标 */
+  .input-icon {
+    @apply absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none;
+  }
+
+  .input-with-icon {
+    @apply pl-10;
+  }
+
+  /* 支付宝风格分割线 */
+  .divider {
+    @apply border-t border-gray-200 my-6;
+  }
+
+  .divider-blue {
+    @apply border-t-2 border-blue-200 my-6;
+  }
+
+  /* 支付宝风格页面标题 */
+  .page-title {
+    @apply text-3xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent;
+  }
+
+  .page-subtitle {
+    @apply text-gray-600 text-lg;
+  }
+
+  /* 支付宝风格卡片标题 */
+  .card-title {
+    @apply text-xl font-bold text-gray-800 mb-4 flex items-center;
+  }
+
+  .card-subtitle {
+    @apply text-gray-600 text-sm mb-6;
+  }
+
+  /* 支付宝风格数值高亮 */
+  .highlight-blue {
+    @apply text-blue-600 font-bold;
+  }
+
+  .highlight-green {
+    @apply text-green-600 font-bold;
+  }
+
+  .highlight-orange {
+    @apply text-orange-600 font-bold;
+  }
+
+  .highlight-red {
+    @apply text-red-600 font-bold;
+  }
+
+  /* 支付宝风格步骤条 */
+  .step-item {
+    @apply flex items-center space-x-4;
+  }
+
+  .step-number {
+    @apply w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-semibold;
+  }
+
+  .step-number.active {
+    @apply bg-blue-600 ring-2 ring-blue-200;
+  }
+
+  .step-number.completed {
+    @apply bg-green-500;
+  }
+
+  .step-content {
+    @apply flex-1;
+  }
+
+  .step-title {
+    @apply font-semibold text-gray-800;
+  }
+
+  .step-description {
+    @apply text-sm text-gray-600;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* 延迟动画 */
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.6s ease-out;
 }
